@@ -23,8 +23,9 @@ $ pnpm install
 2. pino-pretty:用于开发环境
 3. pino-roll:用于生产环境
 
-### winston + nest-winston
-
+### winston + nest-winston + winston-daily-rotate-file
+1. 不能自动打印日志
+2. 打印结果全面
 ## Running the app
 
 ```bash

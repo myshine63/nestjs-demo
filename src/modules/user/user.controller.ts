@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Logger, Post } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Post,
+  Logger,
+} from '@nestjs/common';
 import UserService from './user.service';
 import { CreateUser } from './user.dto';
 @Controller('user')
@@ -7,7 +14,7 @@ export default class UserController {
     private readonly user: UserService,
     private readonly logger: Logger,
   ) {
-    this.logger.log('user controller init');
+    this.logger.error('user controller init');
   }
   @Post()
   create(@Body() user: CreateUser) {
@@ -15,7 +22,6 @@ export default class UserController {
   }
   @Get()
   findAll() {
-    this.logger.log('start....');
     return this.user.findAll();
   }
 }
