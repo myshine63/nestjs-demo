@@ -13,4 +13,10 @@ export default class UserService {
   findAll() {
     return this.prisma.user.findMany();
   }
+
+  async findByUsername(username: string) {
+    const user = await this.prisma.user.findUnique({ where: { username } });
+    console.log(user);
+    return user;
+  }
 }
