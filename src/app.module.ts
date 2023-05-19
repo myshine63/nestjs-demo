@@ -5,6 +5,8 @@ import UserModule from './modules/user/user.module';
 import PrismaModule from './modules/prisma/prisma.module';
 import GlobalModule from './global.module';
 import AuthModule from './modules/auth/auth.module';
+import { APP_GUARD } from '@nestjs/core';
+import JwtGuard from './guards/jwt.guard';
 
 @Module({
   imports: [
@@ -16,6 +18,11 @@ import AuthModule from './modules/auth/auth.module';
     AuthModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtGuard,
+    },
+  ],
 })
 export class AppModule {}

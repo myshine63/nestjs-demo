@@ -15,8 +15,6 @@ export default class UserService {
   }
 
   async findByUsername(username: string) {
-    const user = await this.prisma.user.findUnique({ where: { username } });
-    console.log(user);
-    return user;
+    return this.prisma.user.findUnique({ where: { username } });
   }
 }
