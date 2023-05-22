@@ -15,6 +15,7 @@ model User {
   username String @unique
   password String @default("12345678")
   age      Int    @db.UnsignedTinyInt
+  role     String @default("user")
 }
 
 model Profile {

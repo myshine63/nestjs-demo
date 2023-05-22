@@ -14,7 +14,7 @@ export default class HttpExceptionFilter implements ExceptionFilter {
     const res = context.getResponse<Response>();
     const statusCode = exception.getStatus();
     res.status(statusCode).json({
-      message: exception.message,
+      res: exception.getResponse(),
       time: dayjs().format('YYYY-MM-DD HH:mm:ss'),
       url: req.url,
     });
