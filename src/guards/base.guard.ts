@@ -12,7 +12,6 @@ export default class BaseGuard implements CanActivate {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     const req = context.switchToHttp().getRequest();
-    console.log(req.user);
     return req.user.role === 'admin';
   }
 }
