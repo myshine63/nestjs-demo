@@ -8,7 +8,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   // winston使用
   const app = await NestFactory.create(AppModule, {
-    // logger: createWinstonInstance(),
+    logger: createWinstonInstance(),
   });
   const prismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);
