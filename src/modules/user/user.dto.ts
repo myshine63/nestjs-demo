@@ -1,9 +1,9 @@
 import { IsEnum, IsInt, IsOptional, IsString } from 'class-validator';
 
-export class UserDto {
+export class User {
   id: number;
   username: string;
-  age: number;
+  role: string;
 }
 
 enum Roles {

@@ -11,15 +11,25 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  username String @unique
-  password String @default("12345678")
-  age      Int    @db.UnsignedTinyInt
-  role     String @default("user")
+  id       Int       @id @default(autoincrement())
+  username String    @unique
+  password String    @default("12345678")
+  age      Int       @db.UnsignedTinyInt
+  role     String    @default("user")
+  Article  Article[]
 }
 
 model Profile {
   id    Int    @id @default(autoincrement())
   phone String
   email String @unique
+}
+
+model Article {
+  id        Int    @id @default(autoincrement())
+  title     String @db.Text
+  content   String @db.LongText
+  createdAt BigInt @db.BigInt
+  author    User   @relation(fields: [userId], references: [id])
+  userId    Int
 }

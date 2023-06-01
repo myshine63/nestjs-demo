@@ -4,7 +4,11 @@ import HttpExceptionFilter from './filters/httpException.filter';
 import createWinstonInstance from './utils/createWinstonInstance';
 import { PrismaService } from './modules/prisma/prisma.service';
 import { ValidationPipe } from '@nestjs/common';
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+BigInt.prototype.toJSON = function () {
+  return Number(this.toString());
+};
 async function bootstrap() {
   // winston使用
   const app = await NestFactory.create(AppModule, {
